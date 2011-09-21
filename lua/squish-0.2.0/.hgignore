@@ -1,0 +1,4 @@
+^.hgignore$
+^squish$
+^squish.debug$
+^local

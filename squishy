@@ -1,0 +1,70 @@
+Output "verse.lua"
+
+-- Verse-specific versions of libraries
+Module "util.encodings"		"libs/encodings.lua"
+Module "util.hashes"		"libs/hashes.lua"
+Module "util.logger"		"libs/logger.lua"
+Module "util.sha1"		"util/sha1.lua"
+Module "lib.adhoc"              "libs/adhoc.lib.lua"
+
+-- Prosody libraries
+if not GetOption("prosody") then
+	AutoFetchURL "http://prosody.im/tip/?"
+else
+	AutoFetchURL(GetOption("prosody").."/?")
+end
+
+Module "util.stanza"		"util/stanza.lua"
+Module "util.timer"		"util/timer.lua"
+Module "util.termcolours"	"util/termcolours.lua"
+Module "util.uuid"		"util/uuid.lua"
+Module "net.dns"               "net/dns.lua"
+Module "net.adns"              "net/adns.lua"
+Module "net.server"		"net/server_select.lua"
+Module "util.xmppstream"	"util/xmppstream.lua"
+Module "util.jid"		"util/jid.lua"
+Module "util.events"		"util/events.lua"
+Module "util.dataforms"		"util/dataforms.lua"
+
+-- Verse plugins
+Module "verse.plugins.tls"         "plugins/tls.lua"
+Module "verse.plugins.sasl"	   "plugins/sasl.lua"
+Module "verse.plugins.bind"	   "plugins/bind.lua"
+Module "verse.plugins.legacy"	   "plugins/legacy.lua"
+Module "verse.plugins.pubsub"	   "plugins/pubsub.lua"
+Module "verse.plugins.version"	   "plugins/version.lua"
+Module "verse.plugins.ping"	   "plugins/ping.lua"
+Module "verse.plugins.session"     "plugins/session.lua"
+Module "verse.plugins.compression" "plugins/compression.lua"
+Module "verse.plugins.blocking"    "plugins/blocking.lua"
+Module "verse.plugins.proxy65"     "plugins/proxy65.lua"
+Module "verse.plugins.jingle"      "plugins/jingle.lua"
+Module "verse.plugins.jingle_ft"   "plugins/jingle_ft.lua"
+Module "verse.plugins.jingle_s5b"  "plugins/jingle_s5b.lua"
+Module "verse.plugins.presence"    "plugins/presence.lua"
+Module "verse.plugins.disco"       "plugins/disco.lua"
+Module "verse.plugins.pep"         "plugins/pep.lua"
+Module "verse.plugins.adhoc"       "plugins/adhoc.lua"
+Module "verse.plugins.private"     "plugins/private.lua"
+Module "verse.plugins.groupchat"   "plugins/groupchat.lua"
+Module "verse.plugins.uptime"      "plugins/uptime.lua"
+Module "verse.plugins.smacks"      "plugins/smacks.lua"
+Module "verse.plugins.keepalive"   "plugins/keepalive.lua"
+Module "verse.plugins.roster"      "plugins/roster.lua"
+
+Module "net.httpclient_listener" "net/httpclient_listener.lua"
+Module "net.connlisteners" "net/connlisteners.lua"
+Module "util.httpstream" "util/httpstream.lua"
+Module "net.http" "net/http.lua"
+
+Module "verse.bosh" "bosh.lua"
+
+if GetOption "internal-bit-module" then
+	Module "bit" "libs/bit.lua"
+end
+
+Module "verse.client" "client.lua"
+Module "verse.component" "component.lua"
+
+-- Main verse file
+Main "init.lua"
